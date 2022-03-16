@@ -5,13 +5,10 @@ import Line from "./line";
 function App() {
   return (
     <div className="grid">
-      <Line />
-      <Line />
-      <Line />
-      <Line />
-      <Line />
-      <Line />
-      <input type="date" />
+      <div>
+        <input type="date" />
+        <button type="submit">Submit</button>
+      </div>
     </div>
   );
 }
