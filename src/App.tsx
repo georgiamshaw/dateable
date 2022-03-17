@@ -1,12 +1,22 @@
+import dayjs from "dayjs";
 import React, { useState } from "react";
 import "./App.css";
 
 function App() {
   const [guess, setGuess] = useState("");
+
+  const date = dayjs(guess).format("DD/MM/YYYY").split("");
+
   return (
     <div className="grid">
-      <div>
-        <div>{guess}</div>
+      <div
+        style={{
+          display: "flex",
+        }}
+      >
+        {date.map((date) => {
+          return <div style={{ padding: ".5rem" }}>{date}</div>;
+        })}
       </div>
       <div>
         <input
