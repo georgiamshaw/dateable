@@ -14,8 +14,20 @@ function App() {
           display: "flex",
         }}
       >
-        {date.map((date) => {
-          return <div style={{ padding: ".5rem" }}>{date}</div>;
+        {date.map((date, index) => {
+          return (
+            <div
+              key={index}
+              style={{
+                padding: ".5rem",
+                margin: ".3rem",
+                border: "1px solid gray",
+                borderRadius: "5px",
+              }}
+            >
+              {date}
+            </div>
+          );
         })}
       </div>
       <div>
