@@ -5,6 +5,7 @@ import "./App.css";
 function App() {
   const [guess, setGuess] = useState("");
   const [correctGuess, setCorrectGuess] = useState("");
+  const [colour, setColour] = useState("gray");
 
   const date = dayjs(guess).format("DD/MM/YYYY").split("");
   const todayDate = "2022-03-09";
@@ -12,8 +13,10 @@ function App() {
   useEffect(() => {
     if (guess.localeCompare(todayDate) === 0) {
       setCorrectGuess("Correct");
+      setColour("green");
     } else {
       setCorrectGuess("Incorrect");
+      setColour("red");
     }
   }, [guess]);
 
@@ -27,12 +30,14 @@ function App() {
         {date.map((date, index) => {
           return (
             <div
+              id="div"
               key={index}
               style={{
                 padding: ".5rem",
                 margin: ".3rem",
                 border: "1px solid gray",
                 borderRadius: "5px",
+                backgroundColor: colour,
               }}
             >
               {date}
