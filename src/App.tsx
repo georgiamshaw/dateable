@@ -1,11 +1,21 @@
 import dayjs from "dayjs";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 
 function App() {
   const [guess, setGuess] = useState("");
+  const [correctGuess, setCorrectGuess] = useState("");
 
   const date = dayjs(guess).format("DD/MM/YYYY").split("");
+  const todayDate = "2022-03-09";
+
+  useEffect(() => {
+    if (guess.localeCompare(todayDate) === 0) {
+      setCorrectGuess("Correct");
+    } else {
+      setCorrectGuess("Incorrect");
+    }
+  }, [guess]);
 
   return (
     <div className="grid">
@@ -29,6 +39,7 @@ function App() {
             </div>
           );
         })}
+        <div>{correctGuess}</div>
       </div>
       <div>
         <input
